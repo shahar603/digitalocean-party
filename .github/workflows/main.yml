@@ -31,4 +31,4 @@ jobs:
             host: ${{ secrets.HOST_IP }}
             username: ${{ secrets.HOST_USERNAME }}
             password: ${{ secrets.HOST_PASSWORD }}
-            script: cd /home/cicd-test/digitalocean-party && node src/index.js
+            script: cd /home/cicd-test/digitalocean-party && npm i && node src/index.js
