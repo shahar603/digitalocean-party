@@ -18,17 +18,12 @@ jobs:
       steps:
         - name: Checkout main
           uses: actions/checkout@v2
-        - name: Pull from GitHub
-          uses: appleboy/ssh-action@master
+        - name: Publish to Github Packages Registry
+          uses: elgohr/Publish-Docker-Github-Action@master
           with:
-            host: ${{ secrets.HOST_IP }}
-            username: ${{ secrets.HOST_USERNAME }}
-            password: ${{ secrets.HOST_PASSWORD }}
-            script: cd /home/cicd-test/digitalocean-party && git pull
-        - name: Docker Build
-          uses: appleboy/ssh-action@master
-          with:
-            host: ${{ secrets.HOST_IP }}
-            username: ${{ secrets.HOST_USERNAME }}
-            password: ${{ secrets.HOST_PASSWORD }}
-            script: cd /home/cicd-test/digitalocean-party && npm i && node src/index.js
+            name: shahar603/digitalocean-party/my_image_name
+            registry: docker.pkg.github.com
+            username: ${{ secrets.USERNAME }}
+            password: ${{ secrets.GITHUB_TOKEN }}
+            dockerfile: Dockerfile
+            tags: latest
