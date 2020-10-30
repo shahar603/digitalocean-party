@@ -42,4 +42,4 @@ jobs:
             script: |
               docker stop $(docker ps -a -q)
               docker pull docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
-              docker run -dit -p 3000:80 docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
+              docker run -dit -p 3000:3000 docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
