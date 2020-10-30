@@ -19,14 +19,14 @@ jobs:
         - name: Checkout main
           uses: actions/checkout@v2
         - name: Pull from GitHub
-          uses: appleboy/ssh-action@main
+          uses: appleboy/ssh-action@master
           with:
             host: ${{ secrets.HOST_IP }}
             username: ${{ secrets.HOST_USERNAME }}
             password: ${{ secrets.HOST_PASSWORD }}
             script: cd /home/cicd-test && git pull https://github.com/shahar603/digitalocean-party.git 
         - name: Docker Build
-          uses: appleboy/ssh-action@main
+          uses: appleboy/ssh-action@master
           with:
             host: ${{ secrets.HOST_IP }}
             username: ${{ secrets.HOST_USERNAME }}
