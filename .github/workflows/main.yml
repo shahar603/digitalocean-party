@@ -22,17 +22,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: GitHub Action for DigitalOcean - doctl
-        uses: digitalocean/action-doctl@v2.0.0
-        with:
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-          
-      - name: Verify installation
-        run: doctl version
-
-      - name: Verify log-in
-        run: doctl compute region list
-
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
