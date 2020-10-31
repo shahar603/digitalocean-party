@@ -41,7 +41,7 @@ jobs:
             envs: GITHUB_USERNAME, GITHUB_TOKEN
             script: |
               docker stop $(docker ps -a -q) || true
-              docker login docker.pkg.github.com -u $USERNAME -p $GITHUB_TOKEN
+              docker login -u $USERNAME -p $GITHUB_TOKEN  docker.pkg.github.com 
               docker rmi docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest || true
               docker pull docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
               docker run -dit -p 3000:3000 docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
