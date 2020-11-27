@@ -40,8 +40,7 @@ jobs:
             port: ${{ secrets.HOST_PORT }}
             envs: GITHUB_USERNAME, GITHUB_TOKEN
             script: |
-              docker stop $(docker ps -a -q) || true
-              docker container rm $(docker container ls "-aq") || true
+              docker /ci/clean_docker.sh
               docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN 
               docker rmi docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest || true
               docker pull docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
