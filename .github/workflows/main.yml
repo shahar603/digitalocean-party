@@ -41,7 +41,6 @@ jobs:
             envs: GITHUB_USERNAME, GITHUB_TOKEN
             script: |
               /ci/clean_docker.sh
-              docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN 
-              docker rmi docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest || true
+              docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN   
               docker pull docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
               docker run -dit -p 3000:3000 docker.pkg.github.com/shahar603/digitalocean-party/my_image_name:latest
